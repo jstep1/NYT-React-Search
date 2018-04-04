@@ -41,13 +41,12 @@ router.get("/*", function(req, res) {
 app.use(router);
 
 var db = process.env.MONGODB_URI || "mongodb://localhost/nytapp";
-mongoose.connect(db, function(error) {
-  if (error) {
-    console.error(error);
-  }
-  else {
-    console.log("mongoose connection is successful");
-  }
+
+// Set mongoose to leverage built in JavaScript ES6 Promises
+// Connect to the Mongo DB
+mongoose.Promise = Promise;
+mongoose.connect(db, {
+  useMongoClient: true
 });
 
 // Start the server
