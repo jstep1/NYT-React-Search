@@ -1,2 +1,1 @@
-# NYT-React-Search
-New York Times article scrubber using React
+# New York Times Scrubber
